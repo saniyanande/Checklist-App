@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import '../model/todo.dart';
 import '../constants/colors.dart';
 import '../widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+
+  final todosList = ToDo.todoList();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,11 +37,8 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
-                  ToDoItem(),
-                  ToDoItem(),
-                  ToDoItem(),
-                  ToDoItem(),
-                  ToDoItem(),
+                  for( ToDo todo in todosList)
+                    ToDoItem(todo: todo,),
                 ],
               ),
             )
@@ -52,7 +53,7 @@ class Home extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
-      child: const TextField(
+      child:const TextField(
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(

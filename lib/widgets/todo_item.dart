@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../model/todo.dart';
 import '../constants/colors.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  final ToDo todo;
+  const ToDoItem({Key? key,required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,8 @@ class ToDoItem extends StatelessWidget {
           Icons.check_box,
           color: tdBLue,
         ),
-        title: const Text(
-          'Strike out ASAP',
+        title: Text(
+          todo.todoText!,
           style: TextStyle(
             fontSize: 16,
             color: tdBlack,
