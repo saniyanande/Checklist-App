@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
                           bottom: 20,
                         ),
                         child: Text(
-                          'All ToDos',
+                          'To Do List : ',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w500,
@@ -164,9 +164,9 @@ class _HomeState extends State<Home> {
 
   Widget searchBox() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding:const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+          color: Colors.white, borderRadius: BorderRadius.circular(18)),
       child: TextField(
         onChanged: (value) => _runFilter(value),
         decoration: InputDecoration(
@@ -174,13 +174,20 @@ class _HomeState extends State<Home> {
           prefixIcon: Icon(
             Icons.search,
             color: tdBlack,
-            size: 20,
+            size: 25,
           ),
-          // prefixIconConstraints: BoxConstraints(maxHeight: 8, minHeight: 9),
+
+          // prefixIconConstraints: BoxConstraints(
+          //   maxHeight: 20,
+          //    minHeight: 25
+          //    ),
+
           border: InputBorder.none,
           hintText: 'Search',
-          hintStyle: TextStyle(color: tdGrey),
-        ),
+          hintStyle: TextStyle(
+            color: tdGrey
+         ) ),
+
       ),
     );
   }
@@ -198,7 +205,7 @@ class _HomeState extends State<Home> {
         Container(
           height: 40,
           width: 40,
-          child:CircleAvatar(foregroundImage: AssetImage('images/profile.jpg'),)
+          child:CircleAvatar(foregroundImage: AssetImage('images/profile.png'),)
         ),
       ]),
     );
